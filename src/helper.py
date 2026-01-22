@@ -32,3 +32,9 @@ def get_input():
     except ValueError as err:
         print(err)
         return
+    
+def get_output(matching: dict):
+    output = ''
+    for h, a in matching.items():
+        output += f'{h} {a}\n'
+    return output
