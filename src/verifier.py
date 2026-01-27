@@ -48,8 +48,8 @@ def verify_stability(n: int, hospital: list[list[int]], student: list[list[int]]
     #invert matching to get student -> hospital so that looking up is faster
     inv = {s: h for h, s in matching.items()}
     #rank tables
-    h_rank = [dict() for _ in range(n)]
-    s_rank = [dict() for _ in range(n)]
+    h_rank = [dict() for _ in range(n+1)]
+    s_rank = [dict() for _ in range(n+1)]
     for h in range(1, n+1):
         for i, s in enumerate(hospital[h-1]):
             h_rank[h][s] = i
@@ -63,10 +63,48 @@ def verify_stability(n: int, hospital: list[list[int]], student: list[list[int]]
         for s in range(1, n+1):
             if s == curr_s:
                 continue
-            #check if h prefers s and if s perfers h
+            #check if h prefers s and if s prefers h
             if h_rank[h][s] < h_rank[h][curr_s]:
                 curr_h = inv[s]
                 if s_rank[s][h] < s_rank[s][curr_h]:
                     return False, f"UNSTABLE: blocking pair ({h}, {s})"
                 
     return True, ""
+
+def verify(n: int, hospital: list[list[int]], student: list[list[int]], matching: dict[int, int]) -> str:
+    ok, msg = verify_validity(n, matching)
+    if not ok:
+        return msg
+    ok, msg = verify_stability(n, hospital, student, matching)
+    if not ok:
+        return msg
+    return "VALID STABLE"
+
+def read_matching(n: int) -> dict[int, int]:
+    matching: dict[int, int] = {}
+    for i in range(n):
+        parts = input().split()
+        if len(parts) != 2:
+            raise ValueError("INVALID: bad matching line (expected 'h s')")
+        h, s = map(int, parts)
+        if h in matching:
+            raise ValueError(f"INVALID: duplicate hospital {h} in matching")
+        matching[h] = s
+    return matching
+
+if __name__ == "__main__":
+    data = get_input()
+    if data is None:
+        raise SystemExit(0)
+
+    n, hospital_prefs, student_prefs = data
+
+    try:
+        matching = read_matching(n)
+        print(verify(n, hospital_prefs, student_prefs, matching))
+    except Exception as e:
+        msg = str(e)
+        if msg.startswith("INVALID:") or msg.startswith("UNSTABLE:"):
+            print(msg)
+        else:
+            print(f"INVALID: {msg}")
