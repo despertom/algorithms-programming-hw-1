@@ -3,7 +3,7 @@
 NAME: Dylan Esperto
 UFID: UFID
 
-NAME: Jason Guan
+NAME: NAME
 UFID: UFID
 
 # Instructions
