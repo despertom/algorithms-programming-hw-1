@@ -3,8 +3,8 @@
 NAME: Dylan Esperto
 UFID: UFID
 
-NAME: NAME
-UFID: UFID
+NAME: Tiffany Dang
+UFID: 14332676
 
 # Instructions
 Use python 3.13 to run the programs in src.
