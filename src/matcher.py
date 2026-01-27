@@ -9,6 +9,10 @@ def match(n, hospital: list[list], applicant: list[list]):
     while len(free_hospitals) != 0 and len(hospital[free_hospitals[0]-1]) != 0:
         # Choose a hospital h
         h = free_hospitals[0]
+        # if hospital has no one left to propose to, pop
+        if len(hospital[h-1]) == 0:
+            free_hospitals.pop(0)
+            continue
         # Choose first applicant on h's list to whom h has not been matched
         a = hospital[h-1].pop(0)
         # Find h_prime
@@ -21,7 +25,9 @@ def match(n, hospital: list[list], applicant: list[list]):
             free_applicants.remove(a)
         elif applicant[a-1].index(h) < applicant[a-1].index(h_prime):
             # a prefers h to current assingment
+            del matching[h_prime]
             matching[h] = a
+            free_hospitals.remove(h)
             free_hospitals.append(h_prime)
         else:
             # a rejects h
