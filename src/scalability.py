@@ -6,11 +6,11 @@ from verifier import verify
 from time import time_ns
 
 def test_time(callback, name):
-    count = 200
+    count = 12
     x_axis = []
     y_axis = []
     for i in range(0, count):
-        n = 2^i
+        n = 2**i
         possible = range(1, n + 1)
         h = [
             random.sample(possible, n) for y in range(0, n)
