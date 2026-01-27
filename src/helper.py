@@ -15,7 +15,7 @@ def check_row(pref_row, n):
 def get_input():
     try:
         # n must be non negative (?)
-        n = int(input())
+        n = int(input() or 0)
         if n < 0:
             raise ValueError("Input was negative.")
         
