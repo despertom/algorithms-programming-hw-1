@@ -18,4 +18,5 @@ To run the verifier, with the same assumptions, use:
 
 # Task C
 SOLUTION
-![graph showing growth based on input size](https://github.com/despertom/algorithms-programming-hw-1/blob/2236a0f696ac8b9f0ba76638a387a9fa79fa187f/img/graph.png)
+
+![graph showing growth based on input size](img/graph.png)
