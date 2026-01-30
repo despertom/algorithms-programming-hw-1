@@ -20,3 +20,4 @@ To run the verifier, with the same assumptions, use:
 SOLUTION
 
 ![graph showing growth based on input size](img/graph.png)
+![.txt noting observations](observations\obs.txt)

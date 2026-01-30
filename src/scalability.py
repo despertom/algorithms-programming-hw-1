@@ -18,7 +18,7 @@ def test_time(callback, name):
         a = [
             random.sample(possible, n) for y in range(0, n)
         ]
-        # Run matcher
+        # run matcher
         start = time_ns()
         callback(n, h, a)
         duration = time_ns() - start
