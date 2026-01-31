@@ -11,10 +11,13 @@ UFID: 14332676
 # Instructions
 Use python 3.13 to run the programs in src.
 To run the matcher from the repository root, assuming python is in PATH:
-- python.exe .\src\matcher.py
+- python .\src\matcher.py
 
-To run the verifier, with the same assumptions, use: 
-- python.exe .\src\verifier.py
+To run with the example data, run this command and then enter N, the hospital preferences, and finally the student preferences. An example of valid input is provided in data/input1.txt.
+- python .\src\matcher.py
+
+To run the verifier, run this command and then enter N, the hospital preferences, the student preferences, and then the matching to verify. An example of valid matching is provided in data/output1.txt.
+- python .\src\verifier.py
 
 # Task C
 As n increases, we noticed that runtimes for match and match and verifier increased as well.
