@@ -9,14 +9,14 @@ NAME: Tiffany Dang
 UFID: 14332676
 
 # Instructions
-Use python 3.13 to run the programs in src.
-To run the matcher from the repository root, assuming python is in PATH:
+Use python 3.13 to run the programs in src. The following commands assume python is in PATH.
+To run with the example data, run this command from the repository root and then enter N, the hospital preferences, and finally the student preferences. An example of valid input is provided in data/input1.txt:
 - python .\src\matcher.py
 
-To run with the example data, run this command and then enter N, the hospital preferences, and finally the student preferences. An example of valid input is provided in data/input1.txt.
-- python .\src\matcher.py
 
-To run the verifier, run this command and then enter N, the hospital preferences, the student preferences, and then the matching to verify. An example of valid matching is provided in data/output1.txt.
+
+
+To run the verifier, run this command from the repository root and then enter N, the hospital preferences, the student preferences, and then the matching to verify. An example of valid matching is provided in data/output1.txt:
 - python .\src\verifier.py
 
 # Task C
